@@ -41,7 +41,7 @@ body {
   bottom: 0;
   height: 30px;
   width: 1200px;
-  background-image: url(/img/ground.png);
+  background-image: url(../img/ground.png);
 
   z-index: -2;
 }
@@ -68,7 +68,7 @@ body {
   right: 0;
   height: 100px;
   width: 200px;
-  background-image: url(/img/cloud.png);
+  background-image: url(../img/cloud.png);
   transform: translateX(200px);
 
   z-index: -2;
@@ -113,7 +113,7 @@ body {
 }
 
 .dino-stay {
-  background-image: url(/img/dino-stay.png);
+  background-image: url(../img/dino-stay.png);
 }
 
 .dino-run {
@@ -121,7 +121,7 @@ body {
 }
 
 .dino-jump {
-  background-image: url(/img/dino-jump.png);
+  background-image: url(../img/dino-jump.png);
 
   animation: dino-jump 500ms linear;
 }
@@ -146,7 +146,7 @@ body {
 
 @keyframes dino-run {
   0% {
-    background-image: url(/img/dino-run1.png);
+    background-image: url(../img/dino-run1.png);
   }
   /* 50% {
     background-image: url(/img/dino-run2.png);
@@ -154,12 +154,12 @@ body {
 
   100% {
     /* background-image: url(/img/dino-run1.png); */
-    background-image: url(/img/dino-run2.png);
+    background-image: url(../img/dino-run2.png);
   }
 }
 
 .dino-crash {
-  background-image: url(/img/dino-crash.png);
+  background-image: url(../img/dino-crash.png);
 }
 
 .wrap-cactus {
@@ -181,7 +181,7 @@ body {
 30 50*/
 
 .cactus {
-  background-image: url(/img/cactus.png);
+  background-image: url(../img/cactus.png);
 }
 
 .cactus-run {
