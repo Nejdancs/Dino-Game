@@ -1,0 +1,220 @@
+:root {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 100px;
+}
+
+.hidden {
+  opacity: 0;
+}
+.result {
+  display: flex;
+  justify-content: end;
+  margin: 0 auto;
+
+  width: 600px;
+  font-size: 20px;
+}
+
+.top-scor {
+  margin-right: 20px;
+}
+
+.current-scor,
+.top-scor {
+  display: inline-block;
+  width: 60px;
+  margin-left: 5px;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  width: 1200px;
+  background-image: url(/img/ground.png);
+
+  z-index: -2;
+}
+
+.ground-run {
+  animation: ground-run 1670ms linear infinite;
+}
+.ground-stop {
+  animation-play-state: paused;
+}
+
+@keyframes ground-run {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.cloud {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  height: 100px;
+  width: 200px;
+  background-image: url(/img/cloud.png);
+  transform: translateX(200px);
+
+  z-index: -2;
+}
+
+.cloud-run {
+  animation: cloud-run 6000ms linear infinite;
+}
+.cloud-stop {
+  animation-play-state: paused;
+}
+
+@keyframes cloud-run {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(-800px);
+  }
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  width: 600px;
+  height: 300px;
+  border: 1px solid black;
+  /* border-bottom: 3px solid #535353; */
+  overflow: hidden;
+}
+
+.dino {
+  margin-left: 50px;
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 85px;
+}
+
+.dino-stay {
+  background-image: url(/img/dino-stay.png);
+}
+
+.dino-run {
+  animation: dino-run 300ms linear infinite;
+}
+
+.dino-jump {
+  background-image: url(/img/dino-jump.png);
+
+  animation: dino-jump 500ms linear;
+}
+
+@keyframes dino-jump {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-90px);
+  }
+  50% {
+    transform: translateY(-100px);
+  }
+  75% {
+    transform: translateY(-90px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes dino-run {
+  0% {
+    background-image: url(/img/dino-run1.png);
+  }
+  /* 50% {
+    background-image: url(/img/dino-run2.png);
+  } */
+
+  100% {
+    /* background-image: url(/img/dino-run1.png); */
+    background-image: url(/img/dino-run2.png);
+  }
+}
+
+.dino-crash {
+  background-image: url(/img/dino-crash.png);
+}
+
+.wrap-cactus {
+  display: flex;
+  margin-left: auto;
+  z-index: -1;
+  transform: translateX(100%);
+}
+
+.cactus {
+  width: 30px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* 46 80 
+30 50*/
+
+.cactus {
+  background-image: url(/img/cactus.png);
+}
+
+.cactus-run {
+  animation: cactus-run 2000ms linear;
+}
+
+.cactus-stop {
+  animation-play-state: paused;
+}
+.dino-stop {
+  animation-play-state: paused;
+}
+
+@keyframes cactus-run {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-650px);
+  }
+}
+
+.game-over {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  background-color: #fff;
+  font-size: 24px;
+}
