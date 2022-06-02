@@ -17,8 +17,6 @@ startGame();
 
 function startGame() {
   refs.topScore.innerHTML = String(topScore).padStart(5, "0");
-  addEventListener("click", jumpHandler);
-  addEventListener("keydown", jumpHandler);
 
   addEventListener("click", onStart);
   addEventListener("keydown", onStart);
@@ -29,6 +27,9 @@ function onStart(e) {
     return;
   }
   currentScore = 0;
+
+  addEventListener("click", jumpHandler);
+  addEventListener("keydown", jumpHandler);
 
   clearClassList();
   counterCurrentScore();
@@ -57,6 +58,7 @@ function clearClassList() {
   refs.wrapCactus.classList.remove("cactus-stop");
   refs.dino.classList.remove("dino-stop");
   refs.dino.classList.remove("dino-crash");
+  refs.dino.classList.remove("dino-jump");
   refs.ground.classList.remove("ground-stop");
   refs.cloud.classList.remove("cloud-stop");
   refs.dino.classList.remove("dino-stay");
@@ -86,20 +88,37 @@ function cactusRun() {
     refs.cloud.classList.add("cloud-run");
   }, 0);
 }
+console.log(Math.floor(Math.random() * (5 - 1) + 1));
 
 function generateSizeAndAmount() {
-  let max = 60;
-  let min = 30;
-  const randomAmount = Math.round(Math.random() * (4 - 1) + 1);
+  let max = 0;
+  let min = 0;
+  const randomAmount = Math.floor(Math.random() * (5 - 1) + 1);
 
-  if (randomAmount === 4) {
-    max = 40;
-  } else if (randomAmount === 3) {
-    max = 50;
-  } else if (randomAmount === 2) {
-    max = 60;
-  } else if (randomAmount === 1) {
-    max = 80;
+  if (currentScore < 500) {
+    min = 30;
+
+    if (randomAmount === 4) {
+      max = 35;
+    } else if (randomAmount === 3) {
+      max = 45;
+    } else if (randomAmount === 2) {
+      max = 55;
+    } else if (randomAmount === 1) {
+      max = 65;
+    }
+  } else if (currentScore < 1000) {
+    min = 40;
+
+    if (randomAmount === 4) {
+      max = 45;
+    } else if (randomAmount === 3) {
+      max = 55;
+    } else if (randomAmount === 2) {
+      max = 65;
+    } else if (randomAmount === 1) {
+      max = 75;
+    }
   }
 
   const ramdomSize = Math.round(Math.random() * (max - min) + min);
@@ -111,9 +130,15 @@ function jumpHandler(e) {
   if (e.code !== "Space" && e.type !== "click") {
     return;
   }
+  removeEventListener("click", jumpHandler);
+  removeEventListener("keydown", jumpHandler);
+
   refs.dino.classList.add("dino-jump");
+
   jumpTimeoutId = setTimeout(() => {
     refs.dino.classList.remove("dino-jump");
+    addEventListener("click", jumpHandler);
+    addEventListener("keydown", jumpHandler);
   }, 500);
 }
 
