@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   padding-top: 100px;
+  font-family: "Kdam Thmor Pro", sans-serif;
 }
 
 .hidden {
@@ -22,7 +23,7 @@ body {
   margin: 0 auto;
 
   width: 600px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .top-scor {
