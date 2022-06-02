@@ -41,14 +41,14 @@ body {
   position: absolute;
   bottom: 0;
   height: 30px;
-  width: 1200px;
-  background-image: url(../img/ground.png);
+  width: 2400px;
+  background-image: url(../img/ground2.png);
 
   z-index: -2;
 }
 
 .ground-run {
-  animation: ground-run 1670ms linear infinite;
+  animation: ground-run 3350ms linear infinite forwards;
 }
 .ground-stop {
   animation-play-state: paused;
@@ -182,7 +182,7 @@ body {
 30 50*/
 
 .cactus {
-  background-image: url(../img/cactus.png);
+  background-image: url(../img/cactus5.png);
 }
 
 .cactus-run {

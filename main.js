@@ -72,9 +72,10 @@ function createCactus() {
   const { randomAmount, ramdomSize } = generateSizeAndAmount();
 
   for (let i = 1; i <= randomAmount; i += 1) {
+    const randomImg = Math.floor(Math.random() * (7 - 1) + 1);
     cactusMarkup += `<div class="cactus" style="width:${
-      ramdomSize / 1.66
-    }px ; height: ${ramdomSize}px;"></div>`;
+      ramdomSize / 2
+    }px ; height: ${ramdomSize}px; background-image: url(./img/cactus${randomImg}.png)"></div>`;
   }
   return cactusMarkup;
 }
@@ -118,6 +119,18 @@ function generateSizeAndAmount() {
       max = 65;
     } else if (randomAmount === 1) {
       max = 75;
+    }
+  } else {
+    min = 45;
+
+    if (randomAmount === 4) {
+      max = 55;
+    } else if (randomAmount === 3) {
+      max = 60;
+    } else if (randomAmount === 2) {
+      max = 70;
+    } else if (randomAmount === 1) {
+      max = 80;
     }
   }
 
