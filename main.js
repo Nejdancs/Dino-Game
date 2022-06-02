@@ -70,6 +70,7 @@ const cactus = document.querySelector(".cactus");
 function createCactus() {
   let cactusMarkup = "";
   const { randomAmount, ramdomSize } = generateSizeAndAmount();
+  speedAnimationCactus(randomAmount, ramdomSize);
 
   for (let i = 1; i <= randomAmount; i += 1) {
     const randomImg = Math.floor(Math.random() * (7 - 1) + 1);
@@ -91,6 +92,29 @@ function cactusRun() {
 }
 console.log(Math.floor(Math.random() * (5 - 1) + 1));
 
+function speedAnimationCactus(amount, size) {
+  if (amount === 1) {
+    refs.wrapCactus.style.setProperty(
+      "--var-time-anim",
+      `${(size / 2) * amount + 1860}ms`
+    );
+  } else if (amount === 2) {
+    refs.wrapCactus.style.setProperty(
+      "--var-time-anim",
+      `${(size / 2) * amount + 1900}ms`
+    );
+  } else if (amount === 3) {
+    refs.wrapCactus.style.setProperty(
+      "--var-time-anim",
+      `${(size / 2) * amount + 1930}ms`
+    );
+  } else if (amount === 4) {
+    refs.wrapCactus.style.setProperty(
+      "--var-time-anim",
+      `${(size / 2) * amount + 1940}ms`
+    );
+  }
+}
 function generateSizeAndAmount() {
   let max = 0;
   let min = 0;

@@ -1,4 +1,8 @@
 :root {
+  --var-time-anim: 2000ms;
+}
+
+:root {
   box-sizing: border-box;
 }
 *,
@@ -186,7 +190,7 @@ body {
 }
 
 .cactus-run {
-  animation: cactus-run 2000ms linear;
+  animation: cactus-run var(--var-time-anim) linear;
 }
 
 .cactus-stop {
