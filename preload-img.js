@@ -13,7 +13,7 @@ const images = [
   "./img/dino-stay.png",
 ];
 
-addEventListener("DOMColntentLoaded", () => {
+addEventListener("DOMContentLoaded", () => {
   images.map((el) =>
     document.head.insertAdjacentHTML(
       "beforeend",
