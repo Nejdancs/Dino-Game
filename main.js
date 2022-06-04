@@ -12,14 +12,16 @@ let jumpTimeoutId;
 let topScore = localStorage.getItem("topScore") ?? 0;
 let currentScore = 0;
 let scoreIntId;
+let touchSupport =
+  "ontouchstart" in document.documentElement ? "touchstart" : "mousedown";
 
 startGame();
 
 function startGame() {
   refs.topScore.innerHTML = String(topScore).padStart(5, "0");
 
-  addEventListener("mousedown", onStart);
-  addEventListener("touchstart", onStart);
+  addEventListener(touchSupport, onStart);
+  // addEventListener("touchstart", onStart);
   addEventListener("keydown", onStart);
 }
 
@@ -30,8 +32,8 @@ function onStart(e) {
 
   currentScore = 0;
 
-  addEventListener("mousedown", jumpHandler);
-  addEventListener("touchstart", jumpHandler);
+  addEventListener(touchSupport, jumpHandler);
+  // addEventListener("touchstart", jumpHandler);
   addEventListener("keydown", jumpHandler);
 
   clearClassList();
@@ -42,8 +44,8 @@ function onStart(e) {
 
   refs.dino.classList.add("dino-run");
 
-  removeEventListener("mousedown", onStart);
-  removeEventListener("touchstart", onStart);
+  removeEventListener(touchSupport, onStart);
+  // removeEventListener("touchstart", onStart);
   removeEventListener("keydown", onStart);
   checkResult();
 }
@@ -171,16 +173,16 @@ function jumpHandler(e) {
     return;
   }
 
-  removeEventListener("mousedown", jumpHandler);
-  removeEventListener("touchstart", jumpHandler);
+  removeEventListener(touchSupport, jumpHandler);
+  // removeEventListener("touchstart", jumpHandler);
   removeEventListener("keydown", jumpHandler);
 
   refs.dino.classList.add("dino-jump");
 
   jumpTimeoutId = setTimeout(() => {
     refs.dino.classList.remove("dino-jump");
-    addEventListener("mousedown", jumpHandler);
-    addEventListener("touchstart", jumpHandler);
+    addEventListener(touchSupport, jumpHandler);
+    // addEventListener("touchstart", jumpHandler);
     addEventListener("keydown", jumpHandler);
   }, 500);
 }
@@ -198,8 +200,8 @@ function checkResult() {
       clearTimeout(jumpTimeoutId);
       clearInterval(intId);
 
-      removeEventListener("mousedown", jumpHandler);
-      removeEventListener("touchstart", jumpHandler);
+      removeEventListener(touchSupport, jumpHandler);
+      // removeEventListener("touchstart", jumpHandler);
       removeEventListener("keydown", jumpHandler);
 
       refs.wrapCactus.removeEventListener("animationend", animationEndHandler);
