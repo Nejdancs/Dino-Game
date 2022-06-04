@@ -27,7 +27,6 @@ function onStart(e) {
   if (e.code !== "Space" && e.which !== 1 && e.type !== "touchstart") {
     return;
   }
-  console.log(e);
 
   currentScore = 0;
 
@@ -95,7 +94,6 @@ function cactusRun() {
     refs.cloud.classList.add("cloud-run");
   }, 0);
 }
-console.log(Math.floor(Math.random() * (5 - 1) + 1));
 
 function speedAnimationCactus(amount, size) {
   if (amount === 1) {
@@ -172,7 +170,6 @@ function jumpHandler(e) {
   if (e.code !== "Space" && e.which !== 1 && e.type !== "touchstart") {
     return;
   }
-  console.log(e);
 
   removeEventListener("mousedown", jumpHandler);
   removeEventListener("touchstart", jumpHandler);
