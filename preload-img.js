@@ -13,9 +13,11 @@ const images = [
   "./img/dino-stay.png",
 ];
 
-images.map((el) =>
-  document.head.insertAdjacentHTML(
-    "beforeend",
-    `<link rel="preload" as="image" href="${el}">`
-  )
-);
+addEventListener("DOMColntentLoaded", () => {
+  images.map((el) =>
+    document.head.insertAdjacentHTML(
+      "beforeend",
+      `<link rel="preload" as="image" href="${el}">`
+    )
+  );
+});
