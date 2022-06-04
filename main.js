@@ -18,17 +18,17 @@ startGame();
 function startGame() {
   refs.topScore.innerHTML = String(topScore).padStart(5, "0");
 
-  addEventListener("click", onStart);
+  addEventListener("mousedown", onStart);
   addEventListener("keydown", onStart);
 }
 
 function onStart(e) {
-  if (e.code !== "Space" && e.type !== "click") {
+  if (e.code !== "Space" && e.which !== 1) {
     return;
   }
   currentScore = 0;
 
-  addEventListener("click", jumpHandler);
+  addEventListener("mousedown", jumpHandler);
   addEventListener("keydown", jumpHandler);
 
   clearClassList();
@@ -39,7 +39,7 @@ function onStart(e) {
 
   refs.dino.classList.add("dino-run");
 
-  removeEventListener("click", onStart);
+  removeEventListener("mousedown", onStart);
   removeEventListener("keydown", onStart);
   checkResult();
 }
@@ -164,17 +164,17 @@ function generateSizeAndAmount() {
 }
 
 function jumpHandler(e) {
-  if (e.code !== "Space" && e.type !== "click") {
+  if (e.code !== "Space" && e.which !== 1) {
     return;
   }
-  removeEventListener("click", jumpHandler);
+  removeEventListener("mousedown", jumpHandler);
   removeEventListener("keydown", jumpHandler);
 
   refs.dino.classList.add("dino-jump");
 
   jumpTimeoutId = setTimeout(() => {
     refs.dino.classList.remove("dino-jump");
-    addEventListener("click", jumpHandler);
+    addEventListener("mousedown", jumpHandler);
     addEventListener("keydown", jumpHandler);
   }, 500);
 }
@@ -192,7 +192,7 @@ function checkResult() {
       clearTimeout(jumpTimeoutId);
       clearInterval(intId);
 
-      removeEventListener("click", jumpHandler);
+      removeEventListener("mousedown", jumpHandler);
       removeEventListener("keydown", jumpHandler);
 
       refs.wrapCactus.removeEventListener("animationend", animationEndHandler);
