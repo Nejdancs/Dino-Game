@@ -14,10 +14,10 @@ const images = [
 ];
 
 addEventListener("DOMContentLoaded", () => {
-  images.map((el) =>
+  images.map((elem) =>
     document.head.insertAdjacentHTML(
       "beforeend",
-      `<link rel="preload" as="image" href="${el}">`
+      `<link rel="preload" as="image" href="${elem}">`
     )
   );
 });
